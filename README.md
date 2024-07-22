@@ -54,9 +54,3 @@ document.getElementByTagName('jb-password-input').value = "new string";
 in some cases in your project you need to change default style of web-component for example you need zero margin or different border-radius and etc.    
 if you want to set a custom style to this web-component all you need is to set css variable in parent scope of web-component.
 since jb-payment-input use jb-input underneath, read [jb-input](https://github.com/javadbat/jb-input) custom style list.
-
-<!-- #### number input inbox element style
-
-| css variable name                        | description                                                                                   |
-| -------------                            | -------------                                                                                 |
-| --jb-input-box-indicator-padding         | padding of jb-input-inbox-element, the value default is `8px16px`                             | -->
