@@ -4,7 +4,7 @@ import "jb-input";
 import { JBInputWebComponent } from "jb-input";
 import { type JBInputValue, type ValidationValue } from "jb-input/types";
 //TODO: update it when you move validation to core package
-import { type WithValidation, type ValidationItem } from "jb-input/types/validation";
+import { type WithValidation, type ValidationItem } from "jb-validation/types";
 import { passwordLength } from "./validations";
 import TriggerHTML from './password-trigger.html';
 import { PasswordInputElementsObject, PasswordValidationLevel } from "./types";
