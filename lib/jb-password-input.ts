@@ -12,6 +12,12 @@ import { PasswordInputElementsObject, PasswordValidationLevel } from "./types";
 export class JBPasswordInputWebComponent extends JBInputWebComponent implements WithValidation<ValidationValue> {
   #passwordElements:PasswordInputElementsObject;
   #level:PasswordValidationLevel = "NONE";
+  get level(){
+    return this.#level;
+  }
+  set level(value:PasswordValidationLevel){
+    this.#level = value;
+  }
   isPasswordVisible: boolean | undefined;
   constructor() {
     super();

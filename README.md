@@ -37,7 +37,7 @@ import 'jb-password-input';
 
 ```html
 <div class="some-app-div">
-  <jb-number-input label="number:" message="subtitle of input box"></jb-number-input>
+  <jb-password-input label="password:" message="subtitle of input box"></jb-password-input>
 </div>
 ```
 ### get/set value
@@ -48,9 +48,35 @@ const inputValue = document.getElementByTagName('jb-password-input').value;
 //set value
 document.getElementByTagName('jb-password-input').value = "new string";
 ```
+### set password level
+
+jb-password has some default validation check series that you can set by just set the `level` of the component
+
+```ts
+//level list
+type PasswordValidationLevel ="NONE" | "BASIC" | "PRO"
+//NONE is no default validation
+//BASIC just check for password length
+//PRO check password length + numeric and special char included
+```
+```html
+<jb-password-input level="PRO"></jb-password-input>
+```
+```js
+document.getElementByTagName('jb-password-input').level = "PRO";
+```
+you may not set the level and just set your own validation but we put this option for ease of use.
 
 ### set custom style
 
 in some cases in your project you need to change default style of web-component for example you need zero margin or different border-radius and etc.    
 if you want to set a custom style to this web-component all you need is to set css variable in parent scope of web-component.
 since jb-payment-input use jb-input underneath, read [jb-input](https://github.com/javadbat/jb-input) custom style list.
+
+## Other Related Docs:
+
+- see [jb-password-input-react](https://github.com/javadbat/jb-password-input-react) if you want to use this as a React component.
+
+- see [All JB Design system Component List](https://github.com/javadbat/design-system/blob/master/docs/component-list.md) for more components.
+
+- use [Contribution Guide](https://github.com/javadbat/design-system/blob/master/docs/contribution-guide.md) if you want to contribute in this component.
