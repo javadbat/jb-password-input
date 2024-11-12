@@ -24,12 +24,6 @@
   ],
   "main": "index.js",
   "types": "./dist/web-component/jb-password-input/lib/jb-password-input.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": ["./dist/web-component/jb-password-input/lib/jb-password-input.d.ts"],
-      "types":["./dist/web-component/jb-password-input/lib/types.d.ts"]
-    }
-  },
   "repository": {
 		"type": "git",
 		"url": "git@github.com:javadbat/jb-password-input.git"
