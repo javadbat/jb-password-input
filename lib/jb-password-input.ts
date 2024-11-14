@@ -1,10 +1,9 @@
 import CSS from "./jb-password-input.scss";
 import "jb-input";
 // eslint-disable-next-line no-duplicate-imports
-import { JBInputWebComponent } from "jb-input";
-import { type JBInputValue, type ValidationValue } from "jb-input/types";
+import { JBInputWebComponent, type JBInputValue} from "jb-input";
 //TODO: update it when you move validation to core package
-import { type WithValidation, type ValidationItem } from "jb-validation/types";
+import { type ValidationItem } from "jb-validation";
 import { passwordLength } from "./validations";
 import TriggerHTML from './password-trigger.html';
 import { PasswordInputElementsObject, PasswordValidationLevel } from "./types";
