@@ -2,6 +2,10 @@
 
 this superset component on [jb-input](https://github.com/javadbat/jb-input) , just for password input with ready to use validators & show icon
 
+## using with JS frameworks
+
+to use this component in **react** see [`jb-password-input/react`](https://github.com/javadbat/jb-password-input/tree/main/react);
+
 ## instructions
 
 ### install
@@ -75,7 +79,7 @@ since jb-payment-input use jb-input underneath, read [jb-input](https://github.c
 
 ## Other Related Docs:
 
-- see [jb-password-input-react](https://github.com/javadbat/jb-password-input-react) if you want to use this as a React component.
+- see [`jb-password-input/react`](https://github.com/javadbat/jb-password-input/tree/main/react) if you want to use this as a React component.
 
 - see [All JB Design system Component List](https://github.com/javadbat/design-system/blob/master/docs/component-list.md) for more components.
 

@@ -13,14 +13,16 @@
     "password",
     "web component"
   ],
-  "version": "0.0.5",
+  "version": "0.1.0",
   "bugs": "https://github.com/javadbat/jb-password-input/issues",
   "license": "MIT",
   "files": [
     "LICENSE",
     "README.md",
     "lib/",
-    "dist/"
+    "dist/",
+    "react/",
+    "react/dist/"
   ],
   "main": "index.js",
   "types": "./dist/web-component/jb-password-input/lib/jb-password-input.d.ts",

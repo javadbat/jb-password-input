@@ -7,6 +7,9 @@ import { type ValidationItem } from "jb-validation";
 import { passwordLength } from "./validations";
 import TriggerHTML from './password-trigger.html';
 import { PasswordInputElementsObject, PasswordValidationLevel } from "./types";
+
+export * from "./types.js";
+
 //TODO: add barcode scanner or nfc reader
 export class JBPasswordInputWebComponent extends JBInputWebComponent {
   #passwordElements:PasswordInputElementsObject;
