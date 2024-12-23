@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useImperativeHandle } from 'react';
-import {type Props as JBInputProps, useJBInputAttribute } from 'jb-input/react';
+import {BaseProps, type Props as JBInputProps, useJBInputAttribute } from 'jb-input/react';
 import 'jb-password-input';
 
 // eslint-disable-next-line no-duplicate-imports
@@ -19,19 +19,19 @@ declare global {
   }
 }
 // eslint-disable-next-line react/display-name
-const JBPasswordInput = React.forwardRef((props:Props, ref) => {
+const JBPasswordInput = React.forwardRef<JBPasswordInputWebComponent | undefined,Props>((props, ref) => {
   const element = useRef<JBPasswordInputWebComponent>(null);
   const [refChangeCount, refChangeCountSetter] = useState(0);
   useImperativeHandle(
     ref,
-    () => (element ? element.current : {}),
+    () => (element ? element.current : undefined),
     [element],
   );
   useEffect(() => {
     refChangeCountSetter(refChangeCount + 1);
   }, [element.current]);
   useJBInputAttribute(element,props);
-  useJBInputEvents(element,props);
+  useJBInputEvents<JBPasswordInputWebComponent>(element,props);
   useEffect(() => {
     if( props.level && typeof props.level === "string"){
       element.current.level = props.level;
@@ -44,7 +44,7 @@ const JBPasswordInput = React.forwardRef((props:Props, ref) => {
   );
 });
 
-export type Props = JBInputProps & {
+export type Props = BaseProps<JBPasswordInputWebComponent> & {
   level?: PasswordValidationLevel,
 };
 JBPasswordInput.displayName = "JBPasswordInput";
