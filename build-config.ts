@@ -24,5 +24,7 @@ export const reactComponentList: ReactComponentBuildConfig[] = [
       "prop-types": "PropTypes",
       "jb-input/react": "JBInputReact"
     },
+    umdName: "JBPasswordInputReact",
+    dir: "./react"
   },
 ];
