@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useImperativeHandle } from 'react';
-import {BaseProps, type Props as JBInputProps, useJBInputAttribute } from 'jb-input/react';
+import {BaseProps, useJBInputAttribute } from 'jb-input/react';
 import 'jb-password-input';
 
 // eslint-disable-next-line no-duplicate-imports
