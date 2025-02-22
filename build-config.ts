@@ -22,6 +22,7 @@ export const reactComponentList: ReactComponentBuildConfig[] = [
     globals: {
       react: "React",
       "prop-types": "PropTypes",
+      "jb-password-input": "JBPasswordInput",
       "jb-input/react": "JBInputReact"
     },
     umdName: "JBPasswordInputReact",
