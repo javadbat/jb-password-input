@@ -25,7 +25,7 @@
     "react/dist/"
   ],
   "main": "index.js",
-  "types": "./dist/web-component/jb-password-input/lib/jb-password-input.d.ts",
+  "types": "./jb-password-input.d.ts",
   "repository": {
 		"type": "git",
 		"url": "git@github.com:javadbat/jb-password-input.git"
