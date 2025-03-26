@@ -31,6 +31,6 @@
   },
   "dependencies": {
     "jb-password-input": ">=0.1.1",
-    "jb-input":">=3.5.0"
+    "jb-input":">=3.8.0"
   }
 }
