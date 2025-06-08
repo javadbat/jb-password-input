@@ -5,8 +5,8 @@ import { JBInputWebComponent, type JBInputValue} from "jb-input";
 //TODO: update it when you move validation to core package
 import { type ValidationItem } from "jb-validation";
 import { passwordLength } from "./validations";
-import TriggerHTML from './password-trigger.html';
 import { PasswordInputElementsObject, PasswordValidationLevel } from "./types";
+import { renderTriggerButtonHTML } from "./render";
 
 export * from "./types.js";
 
@@ -31,7 +31,7 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
     const element = document.createElement("template");
     element.innerHTML = html;
     this.shadowRoot.appendChild(element.content.cloneNode(true));
-    this.elements.slots.endSection.innerHTML = TriggerHTML;
+    this.elements.slots.endSection.innerHTML = renderTriggerButtonHTML();
     this.elements.input.setAttribute('type','password');
     this.#passwordElements = {
       passwordTrigger:this.shadowRoot.querySelector('.password-trigger') as HTMLDivElement
