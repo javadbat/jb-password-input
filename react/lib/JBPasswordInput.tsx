@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef, useEffect, useState, useImperativeHandle } from 'react';
 import {BaseProps, useJBInputAttribute } from 'jb-input/react';
 import 'jb-password-input';
@@ -10,7 +11,7 @@ import {type JBPasswordInputWebComponent, type PasswordValidationLevel} from 'jb
 interface JBPasswordInputType extends React.DetailedHTMLProps<React.HTMLAttributes<JBPasswordInputWebComponent>, JBPasswordInputWebComponent> {
   "class"?: string,
 }
-declare global {
+declare module "react" {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
