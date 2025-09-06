@@ -13,7 +13,8 @@ to use this component in **react** see [`jb-password-input/react`](https://githu
 #### using npm
 
 1- install npm package
-```cmd
+
+```sh
 npm i jb-password-input
 ```
 
