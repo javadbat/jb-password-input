@@ -1,4 +1,5 @@
-import CSS from "./jb-password-input.scss";
+import CSS from "./jb-password-input.css";
+import VariablesCSS from "./variables.css";
 import "jb-input";
 // eslint-disable-next-line no-duplicate-imports
 import { JBInputWebComponent, type JBInputValue} from "jb-input";
@@ -27,7 +28,7 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
     this.#initPasswordInputWebComponent();
   }
     #initPasswordInputWebComponent() {
-    const html = `<style>${CSS}</style>`;
+    const html = `<style>${CSS} ${VariablesCSS}</style>`;
     const element = document.createElement("template");
     element.innerHTML = html;
     this.shadowRoot.appendChild(element.content.cloneNode(true));
