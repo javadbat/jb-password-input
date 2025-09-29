@@ -5,28 +5,23 @@ in jb-time-input you can create a input special for time the advantage is:
 
 - all jb-input benefits include customizations, validation,...
 - show password toggle button to let user see inputted password
+- ready to use password validation like minimum length.
 
+## Demo
 
- Demo: [codeSandbox preview](https://3f63dj.csb.app/samples/jb-password-input) for just see the demo and [codeSandbox editor](https://codesandbox.io/p/sandbox/jb-design-system-3f63dj?file=%2Fsrc%2Fsamples%2FJBPasswordInput.tsx) if you want to see and play with code
+ - [codeSandbox preview](https://3f63dj.csb.app/samples/jb-password-input) for just see the demo and [codeSandbox editor](https://codesandbox.io/p/sandbox/jb-design-system-3f63dj?file=%2Fsrc%2Fsamples%2FJBPasswordInput.tsx) if you want to see and play with code
+ - [Storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-inputs-jbpasswordinput)
+
 ## Demo image:    
 ![](pass.png)
 ![](passShow.png)
 
-### set password level
+## set minimum length
 
-jb-password has some default validation check series that you can set by just set the `level` prop of the component
-
-```ts
-//level list
-type PasswordValidationLevel ="NONE" | "BASIC" | "PRO"
-//NONE is no default validation
-//BASIC just check for password length
-//PRO check password length + numeric and special char included
-```
 ```jsx
-<JBPasswordInput level="PRO"></JBPasswordInput>
+<JBPasswordInput minLength={8}></JBPasswordInput>
 ```
-you may not set the level and just set your own validation but we put this option for ease of use.
+You can also set your own validation but we put this option for ease of use.
 
 ## Other Related Docs:
 

@@ -6,7 +6,7 @@ import 'jb-password-input';
 // eslint-disable-next-line no-duplicate-imports
 import {useJBInputEvents } from 'jb-input/react';
 // eslint-disable-next-line no-duplicate-imports
-import {type JBPasswordInputWebComponent, type PasswordValidationLevel} from 'jb-password-input';
+import {type JBPasswordInputWebComponent} from 'jb-password-input';
 
 interface JBPasswordInputType extends React.DetailedHTMLProps<React.HTMLAttributes<JBPasswordInputWebComponent>, JBPasswordInputWebComponent> {
   "class"?: string,
@@ -34,10 +34,8 @@ const JBPasswordInput = React.forwardRef<JBPasswordInputWebComponent | undefined
   useJBInputAttribute(element,props);
   useJBInputEvents<JBPasswordInputWebComponent>(element,props);
   useEffect(() => {
-    if( props.level && typeof props.level === "string"){
-      element.current.level = props.level;
-    }
-  }, [props.level]);
+      element.current.minLength = props.minLength;
+  }, [props.minLength]);
   return (
     <jb-password-input ref={element} class={props.className?props.className:''}>
       {props.children}
@@ -46,7 +44,7 @@ const JBPasswordInput = React.forwardRef<JBPasswordInputWebComponent | undefined
 });
 
 export type Props = BaseProps<JBPasswordInputWebComponent> & {
-  level?: PasswordValidationLevel,
+  minLength?: number | null | undefined,
 };
 JBPasswordInput.displayName = "JBPasswordInput";
 export {JBPasswordInput};

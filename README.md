@@ -1,16 +1,18 @@
 # jb-password-input
 
-this superset component on [jb-input](https://github.com/javadbat/jb-input) , just for password input with ready to use validators & show icon
+this superset component on [jb-input](https://github.com/javadbat/jb-input) , just for password input with following benefits:
+
+- all jb-input benefits include customizations, validation,...
+- show password toggle button to let user see inputted password.
+- ready to use password validation like minimum length.
 
 ## using with JS frameworks
 
 to use this component in **react** see [`jb-password-input/react`](https://github.com/javadbat/jb-password-input/tree/main/react);
 
-## instructions
+## install
 
-### install
-
-#### using npm
+### using npm
 
 1- install npm package
 
@@ -30,7 +32,7 @@ import 'jb-password-input';
 ```html
 <jb-password-input label="password:" message="subtitle of input box"></jb-password-input>
 ```
-#### using cdn
+### using cdn
 
 1- add script tag to your html file.
 
@@ -45,7 +47,7 @@ import 'jb-password-input';
   <jb-password-input label="password:" message="subtitle of input box"></jb-password-input>
 </div>
 ```
-### get/set value
+## get/set value
 
 ```js
 //get value
@@ -53,26 +55,15 @@ const inputValue = document.getElementByTagName('jb-password-input').value;
 //set value
 document.getElementByTagName('jb-password-input').value = "new string";
 ```
-### set password level
 
-jb-password has some default validation check series that you can set by just set the `level` of the component
+## set minimum length
 
-```ts
-//level list
-type PasswordValidationLevel ="NONE" | "BASIC" | "PRO"
-//NONE is no default validation
-//BASIC just check for password length
-//PRO check password length + numeric and special char included
-```
-```html
-<jb-password-input level="PRO"></jb-password-input>
-```
 ```js
-document.getElementByTagName('jb-password-input').level = "PRO";
+document.getElementByTagName('jb-password-input').minLength = 8;
 ```
-you may not set the level and just set your own validation but we put this option for ease of use.
+You can also set your own validation but we put this option for ease of use.
 
-### set custom style
+## set custom style
 
 in some cases in your project you need to change default style of web-component for example you need zero margin or different border-radius and etc.    
 if you want to set a custom style to this web-component all you need is to set css variable in parent scope of web-component.

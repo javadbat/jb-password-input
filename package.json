@@ -13,7 +13,7 @@
     "password",
     "web component"
   ],
-  "version": "1.3.0",
+  "version": "2.0.1",
   "bugs": "https://github.com/javadbat/jb-password-input/issues",
   "license": "MIT",
   "files": [
@@ -31,8 +31,8 @@
 		"url": "git@github.com:javadbat/jb-password-input.git"
   },
   "dependencies": {
-    "jb-input": ">=3.11.0",
+    "jb-input": ">=3.11.3",
     "jb-validation":">=0.4.0",
-    "jb-core":">=0.10.0"
+    "jb-core":">=0.18.1"
   }
 }

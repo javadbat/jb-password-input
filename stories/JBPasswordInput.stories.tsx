@@ -14,3 +14,11 @@ export const Normal: Story = {
     message: "simple password input",
   }
 };
+
+export const MinimumLength: Story = {
+  args: {
+    label: 'with minimum length',
+    message: "enter value with less than 8 char to see error",
+    minLength: 8
+  }
+};
