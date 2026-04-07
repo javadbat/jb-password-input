@@ -4,7 +4,7 @@ this superset component on [jb-input](https://github.com/javadbat/jb-input) , ju
 
 - all jb-input benefits include customizations, validation,...
 - show password toggle button to let user see inputted password.
-- ready to use password validation like minimum length.
+- ready to use password validation like minimum length & required.
 
 ## using with JS frameworks
 
