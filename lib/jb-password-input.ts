@@ -13,7 +13,7 @@ export * from "./types.js";
 
 //TODO: add contain number, contain special char,... to password validation 
 export class JBPasswordInputWebComponent extends JBInputWebComponent {
-  #passwordElements: PasswordInputElementsObject;
+  #passwordElements!: PasswordInputElementsObject;
   isPasswordVisible: boolean | undefined;
   #minLength: number | null = null;
   public get minLength(): number | null {
@@ -32,11 +32,11 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
     const html = `<style>${CSS} ${VariablesCSS}</style>`;
     const element = document.createElement("template");
     element.innerHTML = html;
-    this.shadowRoot.appendChild(element.content.cloneNode(true));
+    this.shadowRoot?.appendChild(element.content.cloneNode(true));
     this.elements.slots.endSection.innerHTML = renderTriggerButtonHTML();
     this.elements.input.setAttribute('type', 'password');
     this.#passwordElements = {
-      passwordTrigger: this.shadowRoot.querySelector('.password-trigger') as HTMLDivElement
+      passwordTrigger: this.shadowRoot!.querySelector('.password-trigger') as HTMLDivElement
     };
     this.validation.addValidationListGetter(this.#getPasswordInputValidations.bind(this));
     this.#addPasswordInputEventListeners();
@@ -73,7 +73,7 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
     if (this.minLength) {
       const passwordLength: ValidationItem<JBInputValue> = {
         validator: ({ value }) => {
-          return value.length >= this.minLength;
+          return value.length >= (this.minLength??0);
         },
         message: dictionary.get(i18n, "lengthValidation")(this.minLength)
       };
