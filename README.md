@@ -11,12 +11,10 @@ this superset component on [jb-input](https://github.com/javadbat/jb-input) , ju
 - show password toggle button to let user see inputted password.
 - ready to use password validation like minimum length & required.
 
-## using with JS frameworks
-
+## Using With JS Frameworks
 - [<img src="https://img.shields.io/badge/React.js-jb--password--input%2Freact-000.svg?logo=react&logoColor=%2361DAFB" height="30" />](https://github.com/javadbat/jb-password-input/tree/main/react)
 
-## install
-
+## Installation
 ### using npm
 
 1- install npm package
@@ -52,6 +50,17 @@ import 'jb-password-input';
   <jb-password-input label="password:" message="subtitle of input box"></jb-password-input>
 </div>
 ```
+
+## Attributes/Properties
+
+| name | type | description |
+| --- | --- | --- |
+| `value` | property | Current password input value. |
+| `minLength` | property | Minimum accepted password length. |
+| `label` | attribute | Input label inherited from `jb-input`. |
+| `message` | attribute | Helper or validation message inherited from `jb-input`. |
+| `change` | event | Fired when the value changes. |
+
 ## get/set value
 
 ```js
@@ -71,11 +80,20 @@ You can also set your own validation but we put this option for ease of use.
 ## set custom style
 
 in some cases in your project you need to change default style of web-component for example you need zero margin or different border-radius and etc.    
-if you want to set a custom style to this web-component all you need is to set css variable in parent scope of web-component.
-since jb-payment-input use jb-input underneath, read [jb-input](https://github.com/javadbat/jb-input) custom style list.
+if you want to set a custom style to this web-component all you need is to set CSS variable in parent scope of web-component.
+since jb-password-input uses jb-input underneath, read [jb-input](https://github.com/javadbat/jb-input) custom style list.
 
-## Other Related Docs:
+## Styling Dependencies
 
+`jb-password-input` uses `jb-input` internally. `jb-input` CSS variables also apply when styling the password input.
+
+## CSS Variables
+| CSS variable name | description |
+| --- | --- |
+| --jb-password-input-active-eye-color | Customize active eye color. |
+| --jb-password-input-eye-color | Customize eye color. |
+
+## Related Docs
 - see [`jb-password-input/react`](https://github.com/javadbat/jb-password-input/tree/main/react) if you want to use this as a React component.
 
 - see [All JB Design system Component List](https://javadbat.github.io/design-system/) for more components.

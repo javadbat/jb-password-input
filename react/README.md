@@ -29,8 +29,12 @@ in jb-time-input you can create a input special for time the advantage is:
 ```
 You can also set your own validation but we put this option for ease of use.
 
-## Other Related Docs:
 
+## Shared Documentation
+
+For web-component behavior, events, slots, and CSS variables, see [`jb-password-input`](https://github.com/javadbat/jb-password-input).
+
+## Related Docs
 - see [jb-password-input](https://github.com/javadbat/jb-password-input) if you want to use this as a web-component in a pure-js app or any other framework.
 
 - see [All JB Design system Component List](https://javadbat.github.io/design-system/) for more components.
