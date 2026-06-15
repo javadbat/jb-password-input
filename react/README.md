@@ -1,4 +1,10 @@
 # jb-password-input-react
+
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-password-input)
+[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-password-input/main/LICENSE)
+[![NPM Version](https://img.shields.io/npm/v/jb-password-input-react)](https://www.npmjs.com/package/jb-password-input-react)
+![GitHub Created At](https://img.shields.io/github/created-at/javadbat/jb-password-input)
+
 password input react component
 this component props and functionality are all come from [jb-input-react](https://github.com/javadbat/jb-input-react) just for password input so for doc just read jb-input-react document
 in jb-time-input you can create a input special for time the advantage is:

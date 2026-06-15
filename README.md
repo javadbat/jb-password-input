@@ -1,5 +1,10 @@
 # jb-password-input
 
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-password-input)
+[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-password-input/main/LICENSE)
+[![NPM Version](https://img.shields.io/npm/v/jb-password-input)](https://www.npmjs.com/package/jb-password-input)
+![GitHub Created At](https://img.shields.io/github/created-at/javadbat/jb-password-input)
+
 this superset component on [jb-input](https://github.com/javadbat/jb-input) , just for password input with following benefits:
 
 - all jb-input benefits include customizations, validation,...
