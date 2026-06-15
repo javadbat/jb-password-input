@@ -13,7 +13,7 @@ this superset component on [jb-input](https://github.com/javadbat/jb-input) , ju
 
 ## using with JS frameworks
 
-to use this component in **react** see [`jb-password-input/react`](https://github.com/javadbat/jb-password-input/tree/main/react);
+- [<img src="https://img.shields.io/badge/React.js-jb--password--input%2Freact-000.svg?logo=react&logoColor=%2361DAFB" height="30" />](https://github.com/javadbat/jb-password-input/tree/main/react)
 
 ## install
 
