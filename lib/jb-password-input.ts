@@ -3,8 +3,8 @@ import VariablesCSS from "./variables.css";
 import "jb-input";
 // eslint-disable-next-line no-duplicate-imports
 import { JBInputWebComponent, type JBInputValue } from "jb-input";
-import { type ValidationItem } from "jb-validation";
-import { PasswordInputElementsObject } from "./types";
+import type { ValidationItem } from "jb-validation";
+import type { PasswordInputElementsObject } from "./types";
 import { renderTriggerButtonHTML } from "./render";
 import { dictionary } from "./i18n";
 import { i18n } from "jb-core/i18n";
@@ -19,8 +19,18 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
   public get minLength(): number | null {
     return this.#minLength;
   }
-  public set minLength(value: number | null) {
-    this.#minLength = value;
+  public set minLength(value: number | null | undefined) {
+    if (value === undefined || value === null) {
+      this.#minLength = null;
+      this.checkValidity();
+      return;
+    }
+    const newValue = Number(value);
+    if (Number.isNaN(newValue)) {
+      console.error("minLength value is not a valid number");
+      return;
+    }
+    this.#minLength = newValue;
     this.checkValidity();
   }
   constructor() {
@@ -70,7 +80,7 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
   #getPasswordInputValidations(): ValidationItem<JBInputValue>[] {
     const validations: ValidationItem<JBInputValue>[] = [];
 
-    if (this.minLength) {
+    if (this.minLength !== null) {
       const passwordLength: ValidationItem<JBInputValue> = {
         validator: ({ value }) => {
           return value.length >= (this.minLength??0);

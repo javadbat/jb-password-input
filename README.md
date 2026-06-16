@@ -5,97 +5,146 @@
 [![NPM Version](https://img.shields.io/npm/v/jb-password-input)](https://www.npmjs.com/package/jb-password-input)
 ![GitHub Created At](https://img.shields.io/github/created-at/javadbat/jb-password-input)
 
-this superset component on [jb-input](https://github.com/javadbat/jb-input) , just for password input with following benefits:
+`jb-password-input` is a password-focused extension of [`jb-input`](https://github.com/javadbat/jb-input). It keeps the JB Design System input UI while adding native password masking, a visibility toggle button, and optional minimum-length validation.
 
-- all jb-input benefits include customizations, validation,...
-- show password toggle button to let user see inputted password.
-- ready to use password validation like minimum length & required.
+- Uses the shared `jb-input` label, message, validation, form association, and styling behavior.
+- Keeps the inner native input type as `password` unless the user presses the visibility toggle.
+- Adds an eye button in the end section to show or hide the password.
+- Provides a simple `minLength` property for built-in password length validation.
+
+## When to use
+
+Use `jb-password-input` for password, passphrase, PIN-like secret text, and credential fields that need password masking and a show/hide button.
+
+Use [`jb-input`](https://github.com/javadbat/jb-input) for normal text fields. Use a custom validation list when password rules need more than minimum length, such as requiring numbers, symbols, or mixed casing.
+
+## Demo
+
+- [Storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-inputs-jbpasswordinput)
+- [CodeSandbox preview](https://3f63dj.csb.app/samples/jb-password-input)
+- [CodeSandbox editor](https://codesandbox.io/p/sandbox/jb-design-system-3f63dj?file=%2Fsrc%2Fsamples%2FJBPasswordInput.tsx)
 
 ## Using With JS Frameworks
+
 - [<img src="https://img.shields.io/badge/React.js-jb--password--input%2Freact-000.svg?logo=react&logoColor=%2361DAFB" height="30" />](https://github.com/javadbat/jb-password-input/tree/main/react)
 
 ## Installation
-### using npm
-
-1- install npm package
 
 ```sh
 npm i jb-password-input
 ```
 
-2- import module in one of your js in page
-
 ```js
 import 'jb-password-input';
-
 ```
-
-3- use component in your html or jsx file like any other html tag
 
 ```html
-<jb-password-input label="password:" message="subtitle of input box"></jb-password-input>
+<jb-password-input label="Password" message="Enter your password"></jb-password-input>
 ```
-### using cdn
 
-1- add script tag to your html file.
+### CDN
 
-```HTML
+```html
 <script src="https://unpkg.com/jb-input/dist/jb-input.umd.js"></script>
 <script src="https://unpkg.com/jb-password-input/dist/jb-password-input.umd.js"></script>
 ```
-2- use web component like any other html tag whenever you need
 
-```html
-<div class="some-app-div">
-  <jb-password-input label="password:" message="subtitle of input box"></jb-password-input>
-</div>
-```
+## API reference
 
-## Attributes/Properties
+`jb-password-input` extends [`jb-input`](https://github.com/javadbat/jb-input). For shared attributes, properties, events, methods, validation, form association, and CSS parts, see the [`jb-input` API](https://github.com/javadbat/jb-input#api-reference).
 
-| name | type | description |
-| --- | --- | --- |
-| `value` | property | Current password input value. |
-| `minLength` | property | Minimum accepted password length. |
-| `label` | attribute | Input label inherited from `jb-input`. |
-| `message` | attribute | Helper or validation message inherited from `jb-input`. |
-| `change` | event | Fired when the value changes. |
+### Password properties
 
-## get/set value
+| name | type | default | description |
+| --- | --- | --- | --- |
+| `minLength` | `number \| null` | `null` | Minimum accepted password length. Set to `null` or `undefined` to disable the built-in length validation. |
+| `isPasswordVisible` | `boolean \| undefined` | `undefined` | Current visibility state toggled by the eye button. |
 
-```js
-//get value
-const inputValue = document.getElementByTagName('jb-password-input').value;
-//set value
-document.getElementByTagName('jb-password-input').value = "new string";
-```
+### Events
 
-## set minimum length
+Password value events are inherited from `jb-input`.
+
+| event | description |
+| --- | --- |
+| `input` | Fired on user edits. |
+| `change` | Fired when the value changes and is committed. |
+| `invalid` | Fired when validation fails. |
+
+## Value
 
 ```js
-document.getElementByTagName('jb-password-input').minLength = 8;
+const passwordInput = document.querySelector('jb-password-input');
+
+passwordInput.value = 'new-secret';
+console.log(passwordInput.value);
 ```
-You can also set your own validation but we put this option for ease of use.
 
-## set custom style
+## Minimum length
 
-in some cases in your project you need to change default style of web-component for example you need zero margin or different border-radius and etc.    
-if you want to set a custom style to this web-component all you need is to set CSS variable in parent scope of web-component.
-since jb-password-input uses jb-input underneath, read [jb-input](https://github.com/javadbat/jb-input) custom style list.
+Use `minLength` for the common minimum-length rule.
 
-## Styling Dependencies
+```js
+const passwordInput = document.querySelector('jb-password-input');
 
-`jb-password-input` uses `jb-input` internally. `jb-input` CSS variables also apply when styling the password input.
+passwordInput.minLength = 8;
+```
 
-## CSS Variables
+```js
+passwordInput.minLength = null; // disables the built-in minimum length rule
+```
+
+For more password rules, use the inherited `validation.list`.
+
+```js
+passwordInput.validation.list = [
+  {
+    validator: ({ value }) => /[0-9]/.test(value),
+    message: 'Password must include a number',
+  },
+];
+```
+
+## Visibility toggle
+
+The component renders an eye button in the end section. Clicking it toggles `isPasswordVisible`, changes the inner input type between `password` and `text`, and updates the icon state.
+
+The component ignores attempts to set the input `type`; use `jb-input` when you need a non-password input type.
+
+## CSS variables
+
+`jb-password-input` uses `jb-input` internally. [`jb-input` CSS variables and parts](https://github.com/javadbat/jb-input#css-parts-and-states) also apply.
+
 | CSS variable name | description |
 | --- | --- |
-| --jb-password-input-active-eye-color | Customize active eye color. |
-| --jb-password-input-eye-color | Customize eye color. |
+| `--jb-password-input-active-eye-color` | Eye icon color while the password is visible. |
+| `--jb-password-input-eye-color` | Eye icon color while the password is hidden. |
+
+```css
+jb-password-input {
+  --jb-password-input-eye-color: #525252;
+  --jb-password-input-active-eye-color: #0f766e;
+}
+```
+
+## Accessibility notes
+
+- Shared label, message, validation, form association, focus, and accessibility behavior come from `jb-input`.
+- The password value is submitted through the inherited form-associated `value`.
+- The visibility toggle changes the inner input type to `text`, so avoid using it where showing the secret is not acceptable.
 
 ## Related Docs
-- see [`jb-password-input/react`](https://github.com/javadbat/jb-password-input/tree/main/react) if you want to use this as a React component.
 
-- see [All JB Design system Component List](https://javadbat.github.io/design-system/) for more components.
+- See [`jb-password-input/react`](https://github.com/javadbat/jb-password-input/tree/main/react) if you want to use this component in a React app.
+- See [`jb-input`](https://github.com/javadbat/jb-input) for inherited API and styling.
+- See [All JB Design System Component List](https://javadbat.github.io/design-system/) for more components.
+- Use [Contribution Guide](https://github.com/javadbat/design-system/blob/main/docs/contribution-guide.md) if you want to contribute to this component.
 
-- use [Contribution Guide](https://github.com/javadbat/design-system/blob/main/docs/contribution-guide.md) if you want to contribute in this component.
+## AI agent notes
+
+- Import `jb-password-input` once before using `<jb-password-input>`.
+- Use `.value` exactly like `jb-input`; the password-specific component only changes masking, visibility toggle, and optional length validation.
+- Set `minLength` as a JavaScript property, not as an HTML attribute.
+- Do not set `type`; the component controls the inner input type and ignores `type` changes.
+- The end section is used by the built-in visibility toggle.
+- This package includes [`custom-elements.json`](./custom-elements.json) and points to it with the package.json `customElements` field. The field is documented by the Custom Elements Manifest project in [Referencing manifests from npm packages](https://github.com/webcomponents/custom-elements-manifest#referencing-manifests-from-npm-packages).
+- In `custom-elements.json`, `exports.kind: "js"` describes JavaScript/TypeScript exports and `exports.kind: "custom-element-definition"` maps the `jb-password-input` tag name to `JBPasswordInputWebComponent`.

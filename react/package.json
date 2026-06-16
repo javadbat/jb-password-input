@@ -15,7 +15,7 @@
     "react component"
   ],
   "version": "0.0.7",
-  "bugs": "https://github.com/javadbat/jb-passwoed-input-react/issues",
+  "bugs": "https://github.com/javadbat/jb-password-input-react/issues",
   "license": "MIT",
   "files": [
     "LICENSE",

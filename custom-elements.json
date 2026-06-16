@@ -1,0 +1,327 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "README.md",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "lib/jb-password-input.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Password-focused extension of jb-input with native password masking, visibility toggle, and optional minimum-length validation.",
+          "name": "JBPasswordInputWebComponent",
+          "tagName": "jb-password-input",
+          "customElement": true,
+          "superclass": {
+            "name": "JBInputWebComponent",
+            "module": "jb-input"
+          },
+          "attributes": [
+            {
+              "name": "value",
+              "description": "Inherited from jb-input. Current password value.",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "label",
+              "description": "Inherited from jb-input. Visible label text and accessible aria label.",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "message",
+              "description": "Inherited from jb-input. Helper text shown under the input when no validation error is visible.",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "name",
+              "description": "Inherited from jb-input. Form field name forwarded to the inner input.",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "placeholder",
+              "description": "Inherited from jb-input. Placeholder forwarded to the inner input.",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "autocomplete",
+              "description": "Inherited from jb-input. Native autocomplete value forwarded to the inner input.",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "type",
+              "description": "Observed through jb-input but ignored by jb-password-input because the component controls the inner input type.",
+              "type": {
+                "text": "string"
+              },
+              "default": "password"
+            },
+            {
+              "name": "inputmode",
+              "description": "Inherited from jb-input. Native inputmode value forwarded to the inner input.",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "virtualkeyboardpolicy",
+              "description": "Inherited from jb-input. Native virtualkeyboardpolicy value forwarded to the inner input.",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "readonly",
+              "description": "Inherited from jb-input. Native readonly attribute forwarded to the inner input.",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "disabled",
+              "description": "Inherited from jb-input. Disables the input.",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "description": "Inherited from jb-input. Enables required validation. A string value is used as the required validation message.",
+              "type": {
+                "text": "boolean | string"
+              }
+            },
+            {
+              "name": "error",
+              "description": "Inherited from jb-input. External validation error message.",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "disable-auto-validation",
+              "description": "Inherited from jb-input. Disables automatic validation on input and blur.",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "size",
+              "description": "Inherited from jb-input. Visual size variant.",
+              "type": {
+                "text": "'xs' | 'sm' | 'md' | 'lg' | 'xl'"
+              }
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "description": "Inherited from jb-input. Canonical password value submitted with forms.",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "displayValue",
+              "description": "Inherited from jb-input. Value rendered in the inner input.",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "validation",
+              "description": "Inherited from jb-input. Validation helper from jb-validation.",
+              "type": {
+                "text": "ValidationHelper<JBInputValue>"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "description": "Inherited from jb-input. Enables or disables the component.",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "description": "Inherited from jb-input. Enables required validation.",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isDirty",
+              "description": "Inherited from jb-input. True when current value differs from initialValue.",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "validationMessage",
+              "description": "Inherited from jb-input. Current validation message.",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "minLength",
+              "description": "Minimum accepted password length. Set to null or undefined to disable the built-in length validation.",
+              "type": {
+                "text": "number | null"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isPasswordVisible",
+              "description": "Current visibility state toggled by the eye button.",
+              "type": {
+                "text": "boolean | undefined"
+              }
+            }
+          ],
+          "methods": [
+            {
+              "name": "checkValidity",
+              "description": "Inherited from jb-input. Runs validation without showing the error message.",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "name": "reportValidity",
+              "description": "Inherited from jb-input. Runs validation and shows the first error message.",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "name": "focus",
+              "description": "Inherited from jb-input. Focuses the inner native input."
+            },
+            {
+              "name": "setSelectionRange",
+              "description": "Inherited from jb-input. Forwards setSelectionRange to the inner input."
+            },
+            {
+              "name": "addStandardValueCallback",
+              "description": "Inherited from jb-input. Registers a callback that can transform displayValue and submitted value."
+            }
+          ],
+          "events": [
+            {
+              "name": "change",
+              "description": "Inherited from jb-input and dispatched when the password value changes."
+            },
+            {
+              "name": "input",
+              "description": "Inherited from jb-input and dispatched on user edits."
+            },
+            {
+              "name": "invalid",
+              "description": "Inherited from jb-input and dispatched when validation fails."
+            },
+            {
+              "name": "beforeinput",
+              "description": "Inherited from jb-input. Cancelable event dispatched before the native input changes."
+            },
+            {
+              "name": "keydown",
+              "description": "Inherited from jb-input. Keyboard event re-dispatched from the host."
+            },
+            {
+              "name": "keyup",
+              "description": "Inherited from jb-input. Keyboard event re-dispatched from the host."
+            },
+            {
+              "name": "enter",
+              "description": "Inherited from jb-input. Dispatched on keyup when Enter is pressed."
+            }
+          ],
+          "slots": [
+            {
+              "name": "start-section",
+              "description": "Inherited from jb-input. Content rendered before the native input."
+            },
+            {
+              "name": "end-section",
+              "description": "Inherited from jb-input, but jb-password-input uses it for the built-in visibility toggle."
+            }
+          ],
+          "cssParts": [
+            {
+              "name": "label",
+              "description": "Inherited from jb-input. The label element."
+            },
+            {
+              "name": "input-box",
+              "description": "Inherited from jb-input. The wrapper around slots and inner input."
+            },
+            {
+              "name": "input",
+              "description": "Inherited from jb-input. The inner native input."
+            },
+            {
+              "name": "message",
+              "description": "Inherited from jb-input. The helper or validation message element."
+            }
+          ],
+          "cssProperties": [
+            {
+              "name": "--jb-password-input-active-eye-color",
+              "description": "Eye icon color while the password is visible."
+            },
+            {
+              "name": "--jb-password-input-eye-color",
+              "description": "Eye icon color while the password is hidden."
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JBPasswordInputWebComponent",
+          "declaration": {
+            "name": "JBPasswordInputWebComponent",
+            "module": "lib/jb-password-input.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jb-password-input",
+          "declaration": {
+            "name": "JBPasswordInputWebComponent",
+            "module": "lib/jb-password-input.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

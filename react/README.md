@@ -1,42 +1,90 @@
-# jb-password-input-react
+# jb-password-input React component
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-password-input)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-password-input/main/LICENSE)
 [![NPM Version](https://img.shields.io/npm/v/jb-password-input-react)](https://www.npmjs.com/package/jb-password-input-react)
 ![GitHub Created At](https://img.shields.io/github/created-at/javadbat/jb-password-input)
 
-password input react component
-this component props and functionality are all come from [jb-input-react](https://github.com/javadbat/jb-input-react) just for password input so for doc just read jb-input-react document
-in jb-time-input you can create a input special for time the advantage is:
-
-- all jb-input benefits include customizations, validation,...
-- show password toggle button to let user see inputted password
-- ready to use password validation like minimum length.
+React wrapper for [`jb-password-input`](https://github.com/javadbat/jb-password-input). It imports and registers the underlying web component and reuses [`jb-input/react`](https://github.com/javadbat/jb-input-react) behavior for shared input props and events.
 
 ## Demo
 
- - [codeSandbox preview](https://3f63dj.csb.app/samples/jb-password-input) for just see the demo and [codeSandbox editor](https://codesandbox.io/p/sandbox/jb-design-system-3f63dj?file=%2Fsrc%2Fsamples%2FJBPasswordInput.tsx) if you want to see and play with code
- - [Storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-inputs-jbpasswordinput)
+- [CodeSandbox preview](https://3f63dj.csb.app/samples/jb-password-input)
+- [CodeSandbox editor](https://codesandbox.io/p/sandbox/jb-design-system-3f63dj?file=%2Fsrc%2Fsamples%2FJBPasswordInput.tsx)
+- [Storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-inputs-jbpasswordinput)
 
-## Demo image:    
+## Demo image
+
 ![](pass.png)
 ![](passShow.png)
 
-## set minimum length
+## Installation
+
+```sh
+npm i jb-password-input
+```
 
 ```jsx
-<JBPasswordInput minLength={8}></JBPasswordInput>
-```
-You can also set your own validation but we put this option for ease of use.
+import { JBPasswordInput } from 'jb-password-input/react';
 
+<JBPasswordInput label="Password" message="Enter your password" />;
+```
+
+## Props
+
+`JBPasswordInput` accepts shared `jb-input/react` props such as `value`, `label`, `message`, `placeholder`, `disabled`, `required`, `validationList`, `onInput`, `onChange`, `onFocus`, `onBlur`, and keyboard events.
+
+| prop | type | description |
+| --- | --- | --- |
+| `minLength` | `number \| null` | Minimum accepted password length. Set to `null` or `undefined` to disable the built-in length validation. |
+
+## Controlled value
+
+```jsx
+const [value, setValue] = useState('');
+
+<JBPasswordInput
+  value={value}
+  onChange={(event) => setValue(event.target.value)}
+/>;
+```
+
+## Minimum length
+
+```jsx
+<JBPasswordInput minLength={8} />;
+```
+
+Use `validationList` for password rules beyond minimum length.
+
+```jsx
+<JBPasswordInput
+  validationList={[
+    {
+      validator: ({ value }) => /[0-9]/.test(value),
+      message: 'Password must include a number',
+    },
+  ]}
+/>;
+```
+
+## Styling
+
+The React component uses the same CSS variables as the web component. For custom style options, see [`jb-password-input`](https://github.com/javadbat/jb-password-input) and inherited [`jb-input`](https://github.com/javadbat/jb-input) styling docs.
 
 ## Shared Documentation
 
-For web-component behavior, events, slots, and CSS variables, see [`jb-password-input`](https://github.com/javadbat/jb-password-input).
+For web-component behavior, events, validation, and CSS variables, see [`jb-password-input`](https://github.com/javadbat/jb-password-input).
 
 ## Related Docs
-- see [jb-password-input](https://github.com/javadbat/jb-password-input) if you want to use this as a web-component in a pure-js app or any other framework.
 
-- see [All JB Design system Component List](https://javadbat.github.io/design-system/) for more components.
+- See [`jb-password-input`](https://github.com/javadbat/jb-password-input) if you want to use this as a web component in a pure JavaScript app or any other framework.
+- See [All JB Design System Component List](https://javadbat.github.io/design-system/) for more components.
+- Use [Contribution Guide](https://github.com/javadbat/design-system/blob/main/docs/contribution-guide.md) if you want to contribute to this component.
 
-- use [Contribution Guide](https://github.com/javadbat/design-system/blob/main/docs/contribution-guide.md) if you want to contribute in this component.
+## AI agent notes
+
+- Import `JBPasswordInput` from `jb-password-input/react`; the wrapper imports and registers the underlying `jb-password-input` web component.
+- Use `minLength` as a React prop; the wrapper sets it as a property on the web component.
+- Use `event.target.value` for the password value.
+- Do not pass `type`; the web component controls the inner input type for password masking and visibility toggle.
