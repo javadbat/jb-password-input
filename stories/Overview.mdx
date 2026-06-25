@@ -1,0 +1,18 @@
+import {Meta, Title, Story, Controls, Stories, Source} from '@storybook/blocks';
+import * as PasswordInputStories from './JBPasswordInput.stories';
+
+<Meta of={PasswordInputStories}/>
+
+<Title>JB Password Input</Title>
+
+Password input component with visibility toggle, validation, message, and size variants.
+
+<Story of={PasswordInputStories.MinimumLength}/>
+<Controls of={PasswordInputStories.MinimumLength}/>
+<Source of={PasswordInputStories.MinimumLength}/>
+
+## Basic usage
+<Story of={PasswordInputStories.Normal}/>
+
+## Other samples & variants
+<Stories/>
