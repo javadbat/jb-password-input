@@ -1,12 +1,12 @@
 import React from 'react';
-import { JBPasswordInput, Props } from 'jb-password-input/react';
+import { JBPasswordInput } from 'jb-password-input/react';
 import type { Meta, StoryObj } from '@storybook/react';
-const meta: Meta<Props> = {
+const meta = {
   title: "Components/form elements/Inputs/JBPasswordInput",
   component: JBPasswordInput,
-};
+} satisfies Meta<typeof JBPasswordInput>;
 export default meta;
-type Story = StoryObj<typeof JBPasswordInput>;
+type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
   args: {
