@@ -7,17 +7,8 @@ import 'jb-password-input';
 import { useJBInputEvents } from 'jb-input/react';
 // eslint-disable-next-line no-duplicate-imports
 import type { JBPasswordInputWebComponent } from 'jb-password-input';
+import './module-declaration.js';
 
-type JBPasswordInputType = React.DetailedHTMLProps<React.HTMLAttributes<JBPasswordInputWebComponent>, JBPasswordInputWebComponent> & DirectProps;
-
-declare module "react" {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace JSX {
-    interface IntrinsicElements {
-      'jb-password-input': JBPasswordInputType;
-    }
-  }
-}
 // eslint-disable-next-line react/display-name
 const JBPasswordInput = React.forwardRef<JBPasswordInputWebComponent | undefined, Props>((props, ref) => {
 
