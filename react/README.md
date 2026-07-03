@@ -30,6 +30,12 @@ import { JBPasswordInput } from 'jb-password-input/react';
 <JBPasswordInput label="Password" message="Enter your password" />;
 ```
 
+## When to use
+
+Use `JBPasswordInput` for password, passphrase, PIN-like secret text, and credential fields that need password masking and a show/hide button.
+
+Use `JBInput` for normal text fields. Use `validationList` when password rules need more than minimum length, such as requiring numbers, symbols, or mixed casing.
+
 ## Props
 
 `JBPasswordInput` accepts shared `jb-input/react` props such as `value`, `label`, `message`, `placeholder`, `disabled`, `required`, `validationList`, `onInput`, `onChange`, `onFocus`, `onBlur`, and keyboard events.
@@ -68,9 +74,21 @@ Use `validationList` for password rules beyond minimum length.
 />;
 ```
 
+## Visibility toggle
+
+The web component owns the password visibility toggle and switches the internal input type between hidden and visible states. Do not pass a custom `type` prop to control masking.
+
 ## Styling
 
 The React component uses the same CSS variables as the web component. For custom style options, see [`jb-password-input`](https://github.com/javadbat/jb-password-input) and inherited [`jb-input`](https://github.com/javadbat/jb-input) styling docs.
+
+## CSS variables
+
+Use the same CSS variables as the web component, plus inherited `jb-input` variables for the shared input shell.
+
+## Accessibility notes
+
+Set `label` for the password field. If your app needs password rules announced before typing, include those rules in nearby visible helper text or the `message` prop.
 
 ## Shared Documentation
 
