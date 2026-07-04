@@ -1,2 +1,2 @@
-import './dist/jb-password-input.js';
-export * from './dist/jb-password-input.js';
+import './web-component/dist/jb-password-input.js';
+export * from './web-component/dist/jb-password-input.js';
