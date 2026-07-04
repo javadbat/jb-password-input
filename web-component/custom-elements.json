@@ -294,7 +294,7 @@
           ],
           "cssProperties": [
             {
-              "name": "--jb-password-input-active-eye-color",
+              "name": "--jb-password-input-eye-color-active",
               "description": "Eye icon color while the password is visible."
             },
             {

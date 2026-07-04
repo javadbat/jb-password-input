@@ -116,13 +116,13 @@ The component ignores attempts to set the input `type`; use `jb-input` when you 
 
 | CSS variable name | description |
 | --- | --- |
-| `--jb-password-input-active-eye-color` | Eye icon color while the password is visible. |
+| `--jb-password-input-eye-color-active` | Eye icon color while the password is visible. |
 | `--jb-password-input-eye-color` | Eye icon color while the password is hidden. |
 
 ```css
 jb-password-input {
   --jb-password-input-eye-color: #525252;
-  --jb-password-input-active-eye-color: #0f766e;
+  --jb-password-input-eye-color-active: #0f766e;
 }
 ```
 
