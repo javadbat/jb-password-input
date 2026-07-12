@@ -1,6 +1,6 @@
 import React from 'react';
 import { JBPasswordInput } from 'jb-password-input/react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 const meta = {
   title: "Components/form elements/Inputs/JBPasswordInput",
   component: JBPasswordInput,
