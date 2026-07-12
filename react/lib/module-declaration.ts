@@ -1,7 +1,7 @@
 import type { DirectProps } from 'jb-input/react';
 import type { JBPasswordInputWebComponent } from 'jb-password-input';
 
-type JBPasswordInputType = React.DetailedHTMLProps<React.HTMLAttributes<JBPasswordInputWebComponent>, JBPasswordInputWebComponent> & DirectProps;
+type JBPasswordInputType = React.DetailedHTMLProps<React.HTMLAttributes<JBPasswordInputWebComponent>, JBPasswordInputWebComponent> & DirectProps & { value?: string, initialValue?: string };
 
 declare module "react" {
   // eslint-disable-next-line @typescript-eslint/no-namespace
