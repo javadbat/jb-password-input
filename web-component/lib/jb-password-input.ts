@@ -99,9 +99,13 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
     if (this.isPasswordVisible) {
       passwordTriggerSVG.classList.add("password-visible");
       textField.setAttribute("type", "text");
+      this.#passwordElements.passwordTrigger.setAttribute("aria-pressed", "true");
+      this.#passwordElements.passwordTrigger.setAttribute("aria-label", dictionary.get(i18n, "hidePassword"));
     } else {
       passwordTriggerSVG.classList.remove("password-visible");
       textField.setAttribute("type", "password");
+      this.#passwordElements.passwordTrigger.setAttribute("aria-pressed", "false");
+      this.#passwordElements.passwordTrigger.setAttribute("aria-label", dictionary.get(i18n, "showPassword"));
     }
   }
 }

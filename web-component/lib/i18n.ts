@@ -1,6 +1,8 @@
 import {JBDictionary} from 'jb-core/i18n';
-export type JBNumberInputDictionary = {
+export type JBPasswordInputDictionary = {
   lengthValidation:(length:number)=>string,
+  showPassword:string,
+  hidePassword:string,
 }
 
 /**
@@ -14,11 +16,15 @@ export type JBNumberInputDictionary = {
  * });
  * ```
  */
-export const dictionary = new JBDictionary<JBNumberInputDictionary>({
+export const dictionary = new JBDictionary<JBPasswordInputDictionary>({
   "fa":{
     lengthValidation:(length:number)=>`گذرواژه شما حداقل میبایست ${length} کارکتر باشد`,
+    showPassword:"نمایش گذرواژه",
+    hidePassword:"پنهان کردن گذرواژه",
   },
   "en":{
     lengthValidation:(length:number)=>`Password must contain at least ${length} character`,
+    showPassword:"Show password",
+    hidePassword:"Hide password",
   }
 });
