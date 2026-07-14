@@ -46,7 +46,7 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
     this.elements.slots.endSection.innerHTML = renderTriggerButtonHTML();
     this.elements.input.setAttribute('type', 'password');
     this.#passwordElements = {
-      passwordTrigger: this.shadowRoot!.querySelector('.password-trigger') as HTMLDivElement
+      passwordTrigger: this.shadowRoot!.querySelector('.password-trigger') as HTMLButtonElement
     };
     this.validation.addValidationListGetter(this.#getPasswordInputValidations.bind(this));
     this.#addPasswordInputEventListeners();
@@ -68,6 +68,9 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
       this.#onPasswordAttributeChange(name, newValue);
     } else {
       this.onAttributeChange(name, newValue);
+      if (name === "disabled" && this.#passwordElements) {
+        this.#passwordElements.passwordTrigger.disabled = this.disabled;
+      }
     }
   }
   #onPasswordAttributeChange(name: string, value: string) {

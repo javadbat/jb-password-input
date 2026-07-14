@@ -1,3 +1,3 @@
 export type PasswordInputElementsObject = {
-    passwordTrigger:HTMLDivElement
+    passwordTrigger:HTMLButtonElement
 }
