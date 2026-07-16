@@ -28,12 +28,24 @@
   ],
   "main": "index.js",
   "types": "./web-component/dist/jb-password-input.d.ts",
+  "exports": {
+    ".": {
+      "types": "./web-component/dist/jb-password-input.d.ts",
+      "default": "./index.js"
+    },
+    "./react": {
+      "types": "./react/dist/JBPasswordInput.d.ts",
+      "default": "./react/index.js"
+    },
+    "./*": "./*"
+  },
   "customElements": "web-component/custom-elements.json",
   "repository": {
 		"type": "git",
 		"url": "git@github.com:javadbat/jb-password-input.git"
   },
   "dependencies": {
+    "jb-icon": ">=0.1.0",
     "jb-input": ">=3.14.0",
     "jb-validation":">=0.4.0",
     "jb-core":">=0.25.0"

@@ -1,6 +1,7 @@
 import CSS from "./jb-password-input.css";
 import VariablesCSS from "./variables.css";
 import "jb-input";
+import "jb-icon/eye";
 // eslint-disable-next-line no-duplicate-imports
 import { JBInputWebComponent, type JBInputValue } from "jb-input";
 import type { ValidationItem } from "jb-validation";
@@ -46,8 +47,10 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
     this.elements.slots.endSection.innerHTML = renderTriggerButtonHTML();
     this.elements.input.setAttribute('type', 'password');
     this.#passwordElements = {
-      passwordTrigger: this.shadowRoot!.querySelector('.password-trigger') as HTMLButtonElement
+      passwordTrigger: this.shadowRoot!.querySelector('.password-trigger') as HTMLButtonElement,
+      passwordEye: this.shadowRoot!.querySelector('jb-icon-eye')!
     };
+    this.#syncPasswordEyeSize(this.getAttribute("size"));
     this.validation.addValidationListGetter(this.#getPasswordInputValidations.bind(this));
     this.#addPasswordInputEventListeners();
   }
@@ -62,7 +65,7 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
       ...JBInputWebComponent.observedAttributes,
     ];
   }
-  attributeChangedCallback(name: string, oldValue: string, newValue: string): void {
+  attributeChangedCallback(name: string, _oldValue: string, newValue: string): void {
     // call base jb-input on attribute changes
     if (["type"].includes(name)) {
       this.#onPasswordAttributeChange(name, newValue);
@@ -71,6 +74,16 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
       if (name === "disabled" && this.#passwordElements) {
         this.#passwordElements.passwordTrigger.disabled = this.disabled;
       }
+      if (name === "size" && this.#passwordElements) {
+        this.#syncPasswordEyeSize(newValue);
+      }
+    }
+  }
+  #syncPasswordEyeSize(size: string | null): void {
+    if (size === null) {
+      this.#passwordElements.passwordEye.removeAttribute("size");
+    } else {
+      this.#passwordElements.passwordEye.setAttribute("size", size);
     }
   }
   #onPasswordAttributeChange(name: string, value: string) {
@@ -97,15 +110,13 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
   #onPasswordTriggerClicked(): void {
     this.isPasswordVisible = !this.isPasswordVisible;
     const textField = this.elements.input;
-    const passwordTriggerSVG =
-      this.#passwordElements.passwordTrigger.querySelector("svg")!;
     if (this.isPasswordVisible) {
-      passwordTriggerSVG.classList.add("password-visible");
+      this.#passwordElements.passwordEye.open = true;
       textField.setAttribute("type", "text");
       this.#passwordElements.passwordTrigger.setAttribute("aria-pressed", "true");
       this.#passwordElements.passwordTrigger.setAttribute("aria-label", dictionary.get(i18n, "hidePassword"));
     } else {
-      passwordTriggerSVG.classList.remove("password-visible");
+      this.#passwordElements.passwordEye.open = false;
       textField.setAttribute("type", "password");
       this.#passwordElements.passwordTrigger.setAttribute("aria-pressed", "false");
       this.#passwordElements.passwordTrigger.setAttribute("aria-label", dictionary.get(i18n, "showPassword"));
