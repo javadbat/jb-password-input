@@ -45,6 +45,7 @@
 		"url": "git@github.com:javadbat/jb-password-input.git"
   },
   "dependencies": {
+    "jb-icon": ">=2.0.0",
     "jb-input": ">=3.17.0",
     "jb-validation":">=1.0.0",
     "jb-core":">=0.30.0"

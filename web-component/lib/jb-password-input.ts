@@ -1,7 +1,7 @@
 import CSS from "./jb-password-input.css";
 import VariablesCSS from "./variables.css";
 import "jb-input";
-import "jb-icon/eye";
+import "jb-icons/eye";
 // eslint-disable-next-line no-duplicate-imports
 import { JBInputWebComponent, type JBInputValue } from "jb-input";
 import type { ValidationItem } from "jb-validation";
