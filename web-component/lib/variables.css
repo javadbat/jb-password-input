@@ -1,4 +1,4 @@
 :host{
   --eye-color-active: var(--jb-password-input-eye-color-active, var(--jb-primary));
-  --eye-color: var(--jb-password-input-eye-color, var(--jb-neutral-7));
+  --eye-color: var(--jb-password-input-eye-color, var(--jb-content-secondary));
 }

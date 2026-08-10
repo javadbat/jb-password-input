@@ -4,6 +4,7 @@
 
 ### Changed
 
+- Updated component color defaults to use the shared semantic content and surface tokens.
 - Updated the React wrapper so an omitted `value` no longer writes an empty live value, allowing the inherited `initialValue` behavior to initialize the component; explicit `null` still clears the live value.
 
 ## [2.2.0] - 2026-07-19
