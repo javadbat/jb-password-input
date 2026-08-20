@@ -1,3 +1,4 @@
+import { defineWebComponent } from "jb-core";
 import CSS from "./jb-password-input.css";
 import VariablesCSS from "./variables.css";
 import "jb-input";
@@ -124,7 +125,4 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
   }
 }
 
-const myElementNotExists = !customElements.get("jb-password-input");
-if (myElementNotExists) {
-  window.customElements.define("jb-password-input", JBPasswordInputWebComponent);
-}
+defineWebComponent("jb-password-input", JBPasswordInputWebComponent);
