@@ -126,3 +126,9 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
 }
 
 defineWebComponent("jb-password-input", JBPasswordInputWebComponent);
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "jb-password-input": JBPasswordInputWebComponent;
+  }
+}
