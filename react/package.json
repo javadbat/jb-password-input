@@ -27,7 +27,7 @@
   "types": "./dist/JBPasswordInput.d.ts",
   "repository": {
 		"type": "git",
-		"url": "git@github.com:javadbat/jb-password-input-react.git"
+		"url": "https://github.com/javadbat/jb-password-input-react.git"
   },
   "dependencies": {
     "jb-password-input": "^0.1.1",
