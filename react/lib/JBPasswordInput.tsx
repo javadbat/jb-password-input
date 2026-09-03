@@ -14,11 +14,11 @@ const JBPasswordInput = React.forwardRef<JBPasswordInputWebComponent | undefined
 
   const element = useRef<JBPasswordInputWebComponent>(null);
   useImperativeHandle(ref, () => element.current ?? undefined, [element]);
-  const { onBeforeinput, onBlur, onChange, onEnter, onFocus, onInput, onKeydown, onKeyup, size, disabled, error, initialValue, inputmode, label, message, name, placeholder, required, type, validationList, value, autocomplete, ...otherProps } = props;
+  const { onBeforeInput, onBlur, onChange, onEnter, onFocus, onInput, onKeyDown, onKeyUp, size, disabled, error, initialValue, inputmode, label, message, name, placeholder, required, type, validationList, value, autocomplete, ...otherProps } = props;
   // props that directly set in jsx dom and need no process or property set
   const directProps: Omit<DirectProps, "value"> & { initialValue: string } = { label, message, name, placeholder, size, type, error, inputmode, autocomplete, initialValue: initialValue?.toString() ?? "" }
   const valueProps = value === undefined ? {} : { value: value?.toString() ?? "" };
-  useJBInputEvents(element, { onBeforeinput, onBlur, onChange, onEnter, onFocus, onInput, onKeydown, onKeyup, ...otherProps });
+  useJBInputEvents(element, { onBeforeInput, onBlur, onChange, onEnter, onFocus, onInput, onKeyDown, onKeyUp, ...otherProps });
   useJBInputAttribute(element, { disabled, required, validationList, ...otherProps });
   useEffect(() => {
     if (element.current) {

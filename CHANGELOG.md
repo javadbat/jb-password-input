@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.0] - 2026-09-03
+
+### Changed
+
+- Standardized private DOM event handlers on the `#on<Target><Event>()` naming convention.
+- Breaking: updated inherited input styling parts to use `control`.
+- Breaking: renamed React keyboard event props to the React convention: `onBeforeInput`, `onKeyDown`, and `onKeyUp`; old prop names are removed.
+
 ## [2.4.0] - 2026-09-01
 
 ### Changed

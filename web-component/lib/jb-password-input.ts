@@ -58,7 +58,7 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
   #addPasswordInputEventListeners() {
     this.#passwordElements.passwordTrigger.addEventListener(
       "click",
-      this.#onPasswordTriggerClicked.bind(this)
+      this.#onPasswordTriggerClick.bind(this)
     );
   }
   static get observedAttributes() {
@@ -108,7 +108,7 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
     }
     return validations;
   }
-  #onPasswordTriggerClicked(): void {
+  #onPasswordTriggerClick(): void {
     this.isPasswordVisible = !this.isPasswordVisible;
     const textField = this.elements.input;
     if (this.isPasswordVisible) {
