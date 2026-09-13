@@ -13,7 +13,7 @@ export const webComponentList: WebComponentBuildConfig[] = [
       "jb-icons/eye": "JBIconEye",
       "jb-validation": "JBValidation",
       "jb-core":"JBCore",
-      "jb-core/i18n":"JBCoreI18N"
+      "jb-core/i18n":"JBCoreI18n"
     },
   },
 ];
