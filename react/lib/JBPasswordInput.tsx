@@ -13,12 +13,12 @@ import './module-declaration.js';
 const JBPasswordInput = React.forwardRef<JBPasswordInputWebComponent | undefined, Props>((props, ref) => {
 
   const element = useRef<JBPasswordInputWebComponent>(null);
-  useImperativeHandle(ref, () => element.current ?? undefined, [element]);
-  const { onBeforeInput, onBlur, onChange, onEnter, onFocus, onInput, onKeyDown, onKeyUp, size, disabled, error, initialValue, inputmode, label, message, name, placeholder, required, type, validationList, value, autocomplete, ...otherProps } = props;
+  useImperativeHandle(ref, () => element.current ?? undefined, []);
+  const { onBeforeInput, onBlur, onChange, onChangeNative, onEnter, onFocus, onInput, onKeyDown, onKeyUp, size, disabled, error, initialValue, inputmode, label, message, name, placeholder, required, type, validationList, value, autocomplete, ...otherProps } = props;
   // props that directly set in jsx dom and need no process or property set
   const directProps: Omit<DirectProps, "value"> & { initialValue: string } = { label, message, name, placeholder, size, type, error, inputmode, autocomplete, initialValue: initialValue?.toString() ?? "" }
   const valueProps = value === undefined ? {} : { value: value?.toString() ?? "" };
-  useJBInputEvents(element, { onBeforeInput, onBlur, onChange, onEnter, onFocus, onInput, onKeyDown, onKeyUp, ...otherProps });
+  const {onChange:internalOnchange} =useJBInputEvents(element, { onBeforeInput, onBlur, onChange,onChangeNative, onEnter, onFocus, onInput, onKeyDown, onKeyUp, ...otherProps });
   useJBInputAttribute(element, { disabled, required, validationList, ...otherProps });
   useEffect(() => {
     if (element.current) {
@@ -26,7 +26,7 @@ const JBPasswordInput = React.forwardRef<JBPasswordInputWebComponent | undefined
     }
   }, [props.minLength]);
   return (
-    <jb-password-input ref={element} {...directProps} {...valueProps} {...otherProps} >
+    <jb-password-input ref={element} {...directProps} {...valueProps} {...otherProps} onChange={internalOnchange} onInput={internalOnchange}>
       {props.children}
     </jb-password-input>
   );

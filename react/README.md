@@ -13,11 +13,6 @@ React wrapper for [`jb-password-input`](https://github.com/javadbat/jb-password-
 - [CodeSandbox editor](https://codesandbox.io/p/sandbox/jb-design-system-3f63dj?file=%2Fsrc%2Fsamples%2FJBPasswordInput.tsx)
 - [Storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-inputs-jbpasswordinput)
 
-## Demo image
-
-![](pass.png)
-![](passShow.png)
-
 ## Installation
 
 ```sh
