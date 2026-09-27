@@ -45,7 +45,7 @@ export class JBPasswordInputWebComponent extends JBInputWebComponent {
     const element = document.createElement("template");
     element.innerHTML = html;
     this.shadowRoot?.appendChild(element.content.cloneNode(true));
-    this.elements.slots.endSection.innerHTML = renderTriggerButtonHTML();
+    this.elements.slots.inlineEnd.innerHTML = renderTriggerButtonHTML();
     this.elements.input.setAttribute('type', 'password');
     this.#passwordElements = {
       passwordTrigger: this.shadowRoot!.querySelector('.password-trigger') as HTMLButtonElement,
